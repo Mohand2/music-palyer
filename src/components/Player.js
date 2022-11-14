@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPlay,
   faAngleLeft,
   faAngleRight,
+  faPause,
 } from '@fortawesome/free-solid-svg-icons';
 
-function Player({ forwardSongHandler, backSongHandler, currentSongIndex }) {
+function Player({
+  forwardSongHandler,
+  backSongHandler,
+  currentSongIndex,
+  isPlaying,
+  playBtnHandler,
+}) {
   return (
     <div className="player">
       <div className="time-control">
@@ -24,7 +31,14 @@ function Player({ forwardSongHandler, backSongHandler, currentSongIndex }) {
             backSongHandler(currentSongIndex);
           }}
         />
-        <FontAwesomeIcon className="play" size="2x" icon={faPlay} />
+        <FontAwesomeIcon
+          className="play"
+          size="2x"
+          icon={isPlaying ? faPause : faPlay}
+          onClick={() => {
+            playBtnHandler(isPlaying);
+          }}
+        />
         <FontAwesomeIcon
           className="skip-forward"
           size="2x"
