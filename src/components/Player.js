@@ -13,13 +13,23 @@ function Player({
   currentSongIndex,
   isPlaying,
   playBtnHandler,
+  audio,
 }) {
+  const [rangeValue, setRangeValue] = useState(0);
+
   return (
     <div className="player">
       <div className="time-control">
-        <p>Start Time</p>
-        <input type="range" />
-        <p>End Time</p>
+        <p> {rangeValue}</p>
+        <input0
+          type="range"
+          value={rangeValue}
+          max={`${audio.duration}`}
+          onChange={(e) => {
+            setRangeValue(e.target.value);
+          }}
+        />
+         <p>{(audio.duration / 60).toFixed(2)}</p>
       </div>
 
       <div className="play-control">

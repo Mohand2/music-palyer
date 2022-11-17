@@ -10,7 +10,6 @@ function App() {
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [currentSong, setcurrentSong] = useState(songs[currentSongIndex]);
   const [isPlaying, setisPlaying] = useState(false);
-
   const [audio, setAudio] = useState(new Audio(currentSong.audio));
 
   useEffect(() => {
@@ -58,6 +57,7 @@ function App() {
         currentSongIndex={currentSongIndex}
         playBtnHandler={playBtnHandler}
         isPlaying={isPlaying}
+        audio={audio}
       />
     </div>
   );
