@@ -8,6 +8,7 @@
   img {
     width: 300px;
     max-height: 300px;
+    border-radius: 50%;
   }
 }
 
@@ -20,5 +21,18 @@
   }
   p {
     font-size: 1rem;
+  }
+}
+
+.rotate {
+  animation: rotation 15s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
   }
 }
