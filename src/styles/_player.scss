@@ -26,8 +26,25 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-svg{
-  cursor: pointer;
+  svg {
+    cursor: pointer;
+  }
 }
 
+.active {
+  color: #942edf;
+}
+.active:hover {
+  color: #930ff1;
+}
+
+.inactive {
+  color: #6d719a;
+}
+.inactive:hover {
+  color: #942edf;
+}
+
+.time {
+  color: #6d719a;
 }

@@ -15,7 +15,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="App glass">
       <Song currentSong={currentSong} isPlaying={isPlaying} />
       <Player
         setisPlaying={setisPlaying}

@@ -57,11 +57,15 @@ function Player({
     let setSlider;
     if (audioRef.current.paused) {
       audioRef.current.play();
+
+      // update slider depending on audio currentTime
       setSlider = setInterval(() => {
         setsliderValue(audioRef.current.currentTime);
       }, 1000);
     } else {
       audioRef.current.pause();
+
+      // clear setInterval
       clearInterval(setSlider);
     }
 
@@ -70,8 +74,8 @@ function Player({
 
   return (
     // audio range ui
-    <div className="player">
-      <div className="time-control">
+    <div className="player  ">
+      <div className="time-control time glass">
         {/* audio tag */}
         <audio
           ref={audioRef}
@@ -105,12 +109,16 @@ function Player({
         </p>
       </div>
 
-      {/* get random audio icon */}
-      <div className="play-control">
-        <FontAwesomeIcon className="skip-random" size="1x" icon={faRandom} />
+      {/*  random audio icon */}
+      <div className="play-control  ">
+        <FontAwesomeIcon
+          className="skip-random inactive"
+          size="1x"
+          icon={faRandom}
+        />
         {/* back icon */}
         <FontAwesomeIcon
-          className="skip-back"
+          className="skip-back inactive"
           size="2x"
           icon={faAngleLeft}
           onClick={backdHandler}
@@ -118,7 +126,7 @@ function Player({
 
         {/* play icon  */}
         <FontAwesomeIcon
-          className="play"
+          className="play active"
           size="2x"
           icon={isPlaying ? faPause : faPlay}
           onClick={() => {
@@ -128,14 +136,18 @@ function Player({
 
         {/* forward icon */}
         <FontAwesomeIcon
-          className="skip-forward"
+          className="skip-forward inactive"
           size="2x"
           icon={faAngleRight}
           onClick={forwardHandler}
         />
 
         {/* repeat icon */}
-        <FontAwesomeIcon className="skip-repeat" size="1x" icon={faRepeat} />
+        <FontAwesomeIcon
+          className="skip-repeat inactive"
+          size="1x"
+          icon={faRepeat}
+        />
       </div>
     </div>
   );

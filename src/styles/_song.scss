@@ -1,5 +1,5 @@
 .song-container {
-  height: 60vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,6 +9,7 @@
     width: 300px;
     max-height: 300px;
     border-radius: 50%;
+    border: 5px solid #6d719a;
   }
 }
 
@@ -17,7 +18,7 @@
   flex-direction: column;
   align-items: center;
   h2 {
-    padding-top: 10px;
+    padding-top: 50px;
   }
   p {
     font-size: 1rem;
