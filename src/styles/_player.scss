@@ -35,7 +35,7 @@
   color: #942edf;
 }
 .active:hover {
-  color: #930ff1;
+  color: #9661bd;
 }
 
 .inactive {
@@ -47,4 +47,61 @@
 
 .time {
   color: #6d719a;
+}
+
+input[type='range'] {
+  background-color: #c8ddf6;
+  height: 34px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+input[type='range']:focus {
+  outline: none;
+}
+input[type='range']::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+
+  background: #6d719a;
+  border-radius: 50px;
+}
+input[type='range']::-webkit-slider-thumb {
+  border: 2px solid #6d719a;
+  height: 23px;
+  width: 23px;
+  border-radius: 23px;
+  background: #942edf;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
+}
+input[type='range']:focus::-webkit-slider-runnable-track {
+  background: #942edf;
+}
+input[type='range']::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+
+  background: #6d719a;
+  border-radius: 50px;
+}
+input[type='range']::-moz-range-thumb {
+  border: 2px solid #6d719a;
+  height: 23px;
+  width: 23px;
+  border-radius: 23px;
+  background: #942edf;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
+}
+
+input[type='range']:focus::-ms-fill-lower {
+  background: #205928;
+}
+input[type='range']:focus::-ms-fill-upper {
+  background: #205928;
 }

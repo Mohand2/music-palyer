@@ -75,7 +75,7 @@ function Player({
   return (
     // audio range ui
     <div className="player  ">
-      <div className="time-control time glass">
+      <div className="time-control time ">
         {/* audio tag */}
         <audio
           ref={audioRef}
