@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPlay,
@@ -18,6 +18,8 @@ function Player({
   setcurrentSong,
   currentSong,
 }) {
+  const audioRef = useRef(null);
+
   useEffect(() => {
     setcurrentSong(songs[currentSongIndex]);
   }, [currentSongIndex, setcurrentSong, songs]);
@@ -26,6 +28,7 @@ function Player({
   function forwardHandler() {
     if (currentSongIndex < songs.length - 1) {
       setcurrentSongIndex((prevIndex) => (prevIndex += 1));
+      setisPlaying(() => !isPlaying);
     }
   }
 
@@ -33,11 +36,14 @@ function Player({
   function backdHandler() {
     if (currentSongIndex > 0) {
       setcurrentSongIndex((prevIndex) => (prevIndex -= 1));
+      setisPlaying(() => !isPlaying);
     }
   }
 
   // play and pause audio function
   function playAndPauseSong() {
+    isPlaying ? audioRef.current.pause() : audioRef.current.play();
+
     setisPlaying(() => !isPlaying);
   }
 
@@ -45,11 +51,13 @@ function Player({
     // audio range ui
     <div className="player">
       <div className="time-control">
-        <audio src={currentSong.audio} controls hidden></audio>
+        {/* audio tag */}
+        <audio ref={audioRef} src={currentSong.audio} controls hidden></audio>
+
         {/* <a href={currentSong.audio}>download audio</a> */}
         <p> 0</p>
         <input type="range" />
-        <p>audio length</p>
+        <p></p>
       </div>
 
       {/* get random audio icon */}
