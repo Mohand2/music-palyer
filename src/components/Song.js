@@ -4,9 +4,15 @@ function Song({ currentSong, isPlaying }) {
   return (
     <div className="song-container">
       <div className="infos">
-        <img src={currentSong.cover} alt="" className={isPlaying?'rotate':''} />
-
+        {/* cover image */}
+        <img
+          src={currentSong.cover}
+          alt=""
+          className={isPlaying ? 'rotate' : ''}
+        />
+        {/* song name */}
         <h2>{currentSong.name}</h2>
+        {/* song artist */}
         <p>{currentSong.artist}</p>
       </div>
     </div>
