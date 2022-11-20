@@ -32,13 +32,22 @@ function Player({
     setsliderValue(0);
   }, [currentSongIndex]);
 
+  //continue playing next audio after 2sec
+
+  function playnextAudio(seconds) {
+    setTimeout(() => {
+      audioRef.current.play();
+      setisPlaying(true);
+    }, seconds * 1000);
+  }
+
   // Handle forward button
   function forwardHandler() {
     if (currentSongIndex < songs.length - 1) {
       audioRef.current.pause();
       setcurrentSongIndex((prevIndex) => (prevIndex += 1));
-
       setisPlaying(false);
+      playnextAudio(1);
     }
   }
 
@@ -49,6 +58,7 @@ function Player({
       setcurrentSongIndex((prevIndex) => (prevIndex -= 1));
 
       setisPlaying(false);
+      playnextAudio(1);
     }
   }
 
@@ -86,7 +96,7 @@ function Player({
         {/* audio tag */}
         <audio
           ref={audioRef}
-          // preload="metadata"
+          preload="auto"
           onLoadedMetadata={() => {
             //on metadata loaded set audio duration
             setaudioDuartion(audioRef.current.duration);
