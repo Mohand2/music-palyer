@@ -2,6 +2,15 @@ import { v4 as uuidv4 } from 'uuid';
 function chillHop() {
   return [
     {
+      name: 'Dardja dardja',
+      cover: 'https://i.ibb.co/kJ04xGg/amine-sema.jpg',
+      artist: 'Amine semma',
+      audio: 'https://audio.jukehost.co.uk/BBsj0grFNGKHSK1Bpg5EocbYtti3kh0g',
+      color: ['#205950', '#2ab3bf'],
+      id: uuidv4(),
+      active: true,
+    },
+    {
       name: 'Beaver Creek',
       cover:
         'https://chillhop.com/wp-content/uploads/2020/09/0255e8b8c74c90d4a27c594b3452b2daafae608d-1024x1024.jpg',
