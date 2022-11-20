@@ -61,6 +61,13 @@ function Player({
       // update slider depending on audio currentTime
       setSlider = setInterval(() => {
         setsliderValue(audioRef.current.currentTime);
+
+        // if audio eneded reset slider and play btn
+        if (audioRef.current.ended) {
+          setisPlaying((isP) => !isP);
+          clearInterval(setSlider);
+          setsliderValue(0);
+        }
       }, 1000);
     } else {
       audioRef.current.pause();
