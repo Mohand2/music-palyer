@@ -3,7 +3,7 @@ import PlaylistSong from './PlaylistSong';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-function Playlist({ songs }) {
+function Playlist({ songs, setisPlaying, setcurrentSongIndex }) {
   const [playlistIsShown, setPlaylistIsShown] = useState(false);
 
   function togglePlaylist() {
@@ -21,7 +21,7 @@ function Playlist({ songs }) {
         />
       )}
       {playlistIsShown && (
-        <div>
+        <>
           <div div className="playlist-header">
             <h1 className="title"> Playlist</h1>
             <FontAwesomeIcon
@@ -31,11 +31,18 @@ function Playlist({ songs }) {
               onClick={togglePlaylist}
             />
           </div>
-
-          {songs.map((song) => (
-            <PlaylistSong key={song.id} song={song} />
-          ))}
-        </div>
+          <div className="songs-container">
+            {songs.map((song, index) => (
+              <PlaylistSong
+                key={song.id}
+                setcurrentSongIndex={setcurrentSongIndex}
+                songIndex={index}
+                song={song}
+                setisPlaying={setisPlaying}
+              />
+            ))}
+          </div>
+        </>
       )}
     </div>
   );

@@ -1,17 +1,26 @@
 .playlist {
   position: absolute;
   top: 0;
+
   z-index: 999;
   left: 0;
   width: 350px;
   height: 100vh;
+  // overflow-y: scroll;
+}
+
+.songs-container {
+  height: 90%;
   overflow-y: scroll;
 }
 .playlist-header {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 12px 10px 8px 10px;
-  border-bottom: 1px solid gray;
+  border-bottom: 3px solid gray;
 }
 
 .icon {
@@ -20,7 +29,6 @@
 }
 
 .title {
-  // padding: 6px 8px;
   font-size: 1.7rem;
   font-family: 'Ubuntu', sans-serif;
 }

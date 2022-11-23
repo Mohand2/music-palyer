@@ -27,7 +27,11 @@ function App() {
         setcurrentSong={setcurrentSong}
       />
 
-      <Playlist songs={songs} />
+      <Playlist
+        setisPlaying={setisPlaying}
+        songs={songs}
+        setcurrentSongIndex={setcurrentSongIndex}
+      />
     </div>
   );
 }
