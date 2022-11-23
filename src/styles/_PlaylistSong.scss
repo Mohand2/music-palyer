@@ -1,0 +1,22 @@
+.song {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 10px;
+  margin: 5px 0;
+  border-bottom: 1px solid rgba(188, 188, 188, 0.953);
+  p {
+    color: rgb(25, 25, 25);
+  }
+}
+
+.song:hover {
+  background-color: #b879e5;
+}
+
+.song-trailing {
+  img {
+    height: 50px;
+    border-radius: 5px;
+  }
+}

@@ -1,0 +1,26 @@
+.playlist {
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  left: 0;
+  width: 350px;
+  height: 100vh;
+  overflow-y: scroll;
+}
+.playlist-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 10px 8px 10px;
+  border-bottom: 1px solid gray;
+}
+
+.icon {
+  padding: 12px;
+  color: rgb(67, 66, 66);
+}
+
+.title {
+  // padding: 6px 8px;
+  font-size: 1.7rem;
+  font-family: 'Ubuntu', sans-serif;
+}
