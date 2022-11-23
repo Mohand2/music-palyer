@@ -10,7 +10,7 @@ function Song({ currentSong, isPlaying }) {
           alt=""
           className={isPlaying ? 'rotate' : ''}
         />
-        {/* song name */}
+         {/* song name */}
         <h2>{currentSong.name}</h2>
         {/* song artist */}
         <p>{currentSong.artist}</p>
@@ -20,3 +20,6 @@ function Song({ currentSong, isPlaying }) {
 }
 
 export default Song;
+
+
+  

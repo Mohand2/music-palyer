@@ -37,7 +37,7 @@ function Player({
   function playnextAudio(seconds) {
     setTimeout(() => {
       audioRef.current.play();
-      setisPlaying(true);
+      setisPlaying((isP) => (isP = true));
     }, seconds * 1000);
   }
 
@@ -46,7 +46,7 @@ function Player({
     if (currentSongIndex < songs.length - 1) {
       audioRef.current.pause();
       setcurrentSongIndex((prevIndex) => (prevIndex += 1));
-      setisPlaying(false);
+      setisPlaying((isP) => (isP = false));
       playnextAudio(1);
     }
   }
@@ -57,7 +57,7 @@ function Player({
       audioRef.current.pause();
       setcurrentSongIndex((prevIndex) => (prevIndex -= 1));
 
-      setisPlaying(false);
+      setisPlaying((isP) => (isP = false));
       playnextAudio(1);
     }
   }
@@ -87,6 +87,13 @@ function Player({
     }
 
     setisPlaying((isP) => !isP);
+  }
+
+  function randomSongIndex() {
+    const randIndex = Math.floor(Math.random() * songs.length);
+    setcurrentSongIndex((prevIndex) => (prevIndex = randIndex));
+    setisPlaying((isP) => (isP = false));
+    playnextAudio(1);
   }
 
   return (
@@ -132,6 +139,9 @@ function Player({
           className="skip-random inactive"
           size="1x"
           icon={faRandom}
+          onClick={() => {
+            randomSongIndex();
+          }}
         />
         {/* back icon */}
         <FontAwesomeIcon
